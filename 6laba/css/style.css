@@ -2,6 +2,115 @@ body {
   padding: 0;
   margin: 0;
   background-color: skyblue;
+  position: relative;
+  overflow: hidden;
+}
+
+.sun-wrap {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  animation: sun_move 60s infinite linear;
+}
+.sun-wrap .sun {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: #ffcc1f;
+  animation: sun_light 2s infinite ease;
+}
+
+.cloud-wrap {
+  position: absolute;
+  top: 50px;
+  animation: clouds_move 40s infinite linear;
+}
+.cloud-wrap .cloud {
+  position: absolute;
+}
+.cloud-wrap .cloud1 {
+  left: 10px;
+  top: 0px;
+  animation: change_opacity 4s infinite ease;
+}
+.cloud-wrap .cloud2 {
+  left: 100px;
+  top: 50px;
+  animation: change_opacity 5s infinite ease;
+}
+.cloud-wrap .cloud3 {
+  left: 225px;
+  top: 20px;
+  animation: change_opacity 6s infinite ease;
+}
+
+@keyframes change_opacity {
+  from {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes clouds_move {
+  from {
+    left: -400px;
+  }
+  50% {
+    left: 50%;
+  }
+  to {
+    left: 100%;
+  }
+}
+@keyframes sun_light {
+  from {
+    box-shadow: 0px 0px 10px #ffcc1f;
+  }
+  50% {
+    box-shadow: 0px 0px 50px #ffcc1f;
+  }
+  to {
+    box-shadow: 0px 0px 10px #ffcc1f;
+  }
+}
+@keyframes sun_move {
+  from {
+    right: -190px;
+    top: 300px;
+  }
+  30% {
+    right: 30%;
+    margin-right: -100px;
+    top: 50px;
+  }
+  50% {
+    right: 50%;
+    margin-right: -100px;
+    top: 10px;
+  }
+  70% {
+    right: 70%;
+    margin-right: -100px;
+    top: 50px;
+  }
+  to {
+    right: 100%;
+    top: 300px;
+  }
+}
+.ground {
+  background-color: #008000;
+  width: 150%;
+  height: 200px;
+  position: fixed;
+  left: -20px;
+  bottom: -50px;
+  z-index: 200;
+  transform: rotate(2deg);
 }
 
 /*# sourceMappingURL=style.css.map */
