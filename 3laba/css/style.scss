@@ -1,2 +1,43 @@
-$maincolor: #000
+$maincolor: #000;
+$font-color: white;
+@mixin margins_and_paddings {
+  padding: 0;
+  margin: 0;
+}
 
+body {
+  @include margins_and_paddings;
+  font-family: 'Oswald', Helvetica sans-serif;
+}
+
+ul, p {
+  @include margins_and_paddings;
+}
+
+header {
+  height: 100vh;
+  background: url("../img/banner_bg.jpg") no-repeat;
+  background-size: cover;
+
+  .container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .header__title {
+    color: $font-color;
+    text-shadow: 0px 0px 10px black;
+  }
+
+  .header__img {
+    margin-top: 50px;
+    height: 30px;
+  }
+}
+.css {
+  .css__content {
+    
+  }
+}
