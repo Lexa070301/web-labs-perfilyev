@@ -9,45 +9,60 @@ body {
   position: relative;
   overflow: hidden;
 }
+
 .sun-wrap {
   position: absolute;
   right: 20px;
   top: 20px;
   z-index: 3;
 
-  animation: sun_move  60s infinite linear;
+  animation: sun_move 60s infinite linear;
+
   .sun {
     width: $sun_size;
     height: $sun_size;
     border-radius: 50%;
     background-color: $sun_color;
-    animation: sun_light  2s infinite ease;
+    animation: sun_light 2s infinite ease;
+    transition: 0.5s ease all;
+
+    &:hover {
+      opacity: 0;
+    }
   }
 }
+
 .cloud-wrap {
   position: absolute;
   top: 50px;
   z-index: 5;
-  animation: clouds_move  40s infinite linear;
+  animation: clouds_move 40s infinite linear;
+
   .cloud {
     position: absolute;
   }
+
   .cloud1 {
     left: 10px;
     top: 0px;
-    animation: change_opacity  4s infinite ease;
+    animation: change_opacity 4s infinite ease;
+
   }
+
   .cloud2 {
     left: 100px;
     top: 50px;
-    animation: change_opacity  5s infinite ease;
+    animation: change_opacity 5s infinite ease;
   }
+
   .cloud3 {
     left: 225px;
     top: 20px;
-    animation: change_opacity  6s infinite ease;
+    animation: change_opacity 6s infinite ease;
+
   }
 }
+
 @keyframes change_opacity {
   from {
     opacity: 1;
@@ -59,6 +74,7 @@ body {
     opacity: 1;
   }
 }
+
 @keyframes clouds_move {
   from {
     left: -400px;
@@ -70,6 +86,7 @@ body {
     left: 100%;
   }
 }
+
 @keyframes sun_light {
   from {
     box-shadow: 0px 0px 10px $sun_color;
@@ -81,6 +98,7 @@ body {
     box-shadow: 0px 0px 10px $sun_color;
   }
 }
+
 @keyframes sun_move {
   from {
     right: -$sun_size+10px;
@@ -89,23 +107,24 @@ body {
   30% {
     right: 30%;
     margin-right: -$sun_size/2;
-    top:50px;
+    top: 50px;
   }
   50% {
     right: 50%;
     margin-right: -$sun_size/2;
-    top:10px;
+    top: 10px;
   }
   70% {
     right: 70%;
     margin-right: -$sun_size/2;
-    top:50px;
+    top: 50px;
   }
   to {
     right: 100%;
     top: $sun_size+100px;
   }
 }
+
 .ground {
   background-color: $ground_color;
   width: 150%;
@@ -116,9 +135,36 @@ body {
   z-index: 2;
   transform: rotate(2deg);
 }
+
 .house {
   position: absolute;
   left: 200px;
   top: 350px;
   z-index: 4;
+  transition: 0.5s ease all;
+
+  &:hover {
+    opacity: 0;
+  }
+}
+.car {
+  position: absolute;
+  top: 550px;
+  z-index: 6;
+  transition: 0.5s ease all;
+  animation: car_move 10s infinite linear;
+  &:hover {
+    opacity: 0;
+  }
+}
+@keyframes car_move {
+  from {
+    left: -200px;
+  }
+  50% {
+    left: 50%;
+  }
+  to {
+    left: 100%;
+  }
 }

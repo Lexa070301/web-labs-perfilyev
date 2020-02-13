@@ -19,6 +19,10 @@ body {
   border-radius: 50%;
   background-color: #ffcc1f;
   animation: sun_light 2s infinite ease;
+  transition: 0.5s ease all;
+}
+.sun-wrap .sun:hover {
+  opacity: 0;
 }
 
 .cloud-wrap {
@@ -120,6 +124,33 @@ body {
   left: 200px;
   top: 350px;
   z-index: 4;
+  transition: 0.5s ease all;
+}
+.house:hover {
+  opacity: 0;
+}
+
+.car {
+  position: absolute;
+  top: 550px;
+  z-index: 6;
+  transition: 0.5s ease all;
+  animation: car_move 10s infinite linear;
+}
+.car:hover {
+  opacity: 0;
+}
+
+@keyframes car_move {
+  from {
+    left: -200px;
+  }
+  50% {
+    left: 50%;
+  }
+  to {
+    left: 100%;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
