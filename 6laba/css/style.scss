@@ -157,9 +157,54 @@ body {
     opacity: 0;
   }
 }
+
 @keyframes car_move {
   from {
     left: -200px;
+  }
+  50% {
+    left: 50%;
+  }
+  to {
+    left: 100%;
+  }
+}
+.moto {
+  position: absolute;
+  top: 550px;
+  z-index: 5;
+  transition: 0.5s ease all;
+  animation: moto 8s infinite linear;
+  &:hover {
+    opacity: 0;
+  }
+}
+
+@keyframes moto {
+  from {
+    right: -100px;
+  }
+  50% {
+    right: 50%;
+  }
+  to {
+    right: 100%;
+  }
+}
+.plane {
+  position: absolute;
+  top: 150px;
+  z-index: 5;
+  transition: 0.5s ease all;
+  animation: plane 6s infinite linear;
+  &:hover {
+    opacity: 0;
+  }
+}
+
+@keyframes plane {
+  from {
+    left: -100px;
   }
   50% {
     left: 50%;
