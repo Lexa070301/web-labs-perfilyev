@@ -13,6 +13,7 @@ body {
   position: absolute;
   right: 20px;
   top: 20px;
+  z-index: 3;
 
   animation: sun_move  60s infinite linear;
   .sun {
@@ -26,6 +27,7 @@ body {
 .cloud-wrap {
   position: absolute;
   top: 50px;
+  z-index: 5;
   animation: clouds_move  40s infinite linear;
   .cloud {
     position: absolute;
@@ -111,6 +113,12 @@ body {
   position: fixed;
   left: -20px;
   bottom: -50px;
-  z-index: 200;
+  z-index: 2;
   transform: rotate(2deg);
+}
+.house {
+  position: absolute;
+  left: 200px;
+  top: 350px;
+  z-index: 4;
 }
