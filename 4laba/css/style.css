@@ -135,9 +135,11 @@ a {
     max-width: 456px;
     font-weight: lighter;
 }
+
 .content {
     padding-top: 100px;
 }
+
 .content > .container {
     display: flex;
     justify-content: space-between;
@@ -149,32 +151,45 @@ a {
 
 .content__right {
     width: 32%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.content__balloons {
+.content__block {
     width: 100%;
     box-sizing: border-box;
     height: 479px;
-    background: url('../img/balloons_bg.png') center center no-repeat;
     background-size: cover;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     padding: 60px 0px 30px 0px;
+    margin-bottom: 32px;
 }
 
-.content__balloons__title {
+.content__balloons {
+    background: url('../img/balloons_bg.png') center center no-repeat;
+}
+
+.content__block__title {
     text-transform: uppercase;
     font-size: 30px;
     font-family: "Playfair Display";
     font-weight: 900;
     text-align: center;
+    color: white;
 }
 
-.content__balloons__btn {
-    border: 0;
-    background-color: #FF7931;
+.content__balloons__title {
+    color: black;
+}
+
+.content__btn {
+    box-sizing: border-box;
+    border: 2px solid #FF7931;
+    background: none;
     width: 170px;
     display: flex;
     justify-content: center;
@@ -188,6 +203,145 @@ a {
     cursor: pointer;
 }
 
+.content__balloons__btn {
+    border: 0;
+    background-color: #FF7931;
+
+}
+
 .content__balloons__btn-img {
     margin-left: 10px;
+}
+
+.content__photo {
+    background: url('../img/photo_bg.png') center center no-repeat;
+
+}
+
+.content__bird {
+    background: url('../img/exhibition-bird_bg.png') center center no-repeat;
+
+}
+
+.content__news__title {
+    text-align: left;
+    font-size: 17px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.content__news__block {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    height: 334px;
+}
+
+.content__news__left {
+    width: 470px;
+}
+
+.content__news__right {
+    width: 270px;
+    height: 100%;
+}
+
+.content__news__main {
+    width: 100%;
+    height: 334px;
+    background: url("../img/culture_news_bg.png") center center no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    box-sizing: border-box;
+    padding: 20px;
+    transition: 0.3s ease all;
+    cursor: pointer;
+}
+
+.content__news__main:hover .content__news__main-title {
+    color: #FF7931;
+}
+
+.content__news__main-title {
+    transition: 0.3s ease all;
+    font-family: "Playfair Display";
+    font-size: 20px;
+    font-weight: 900;
+    margin-bottom: 5px;
+}
+
+.content__news__main-text {
+    font-size: 14px;
+    width: 90%;
+}
+
+.content__news__list {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    list-style: none;
+}
+
+.content__news__list__item {
+    height: 91px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: 0.3s ease all;
+    position: relative;
+}
+
+.content__news__list__item:hover .content__news__list__item-img {
+    filter: brightness(50%);
+}
+
+.content__news__list__item:hover .content__news__list__item-title {
+    color: #FF7931;
+}
+
+.content__news__list__item:hover .content__news__list__item-flag {
+    opacity: 1;
+}
+
+.content__news__list__item-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.content__news__list__item-img {
+    height: 100%;
+    width: 127px;
+    margin-right: 10px;
+    transition: 0.3s ease all;
+}
+
+.content__news__list__item-title {
+    font-size: 14px;
+    font-weight: 900;
+    font-family: "Playfair Display";
+    margin-bottom: 10px;
+    transition: 0.3s ease all;
+}
+
+.content__news__list__item-text {
+    font-size: 10px;
+}
+
+.content__news__list__item-flag {
+    position: absolute;
+    top: 6px;
+    left: 106px;
+    opacity: 0;
+    transition: 0.3s ease all;
+    z-index: 200;
 }
