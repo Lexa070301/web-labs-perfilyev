@@ -222,8 +222,10 @@ a {
     background: url('../img/exhibition-bird_bg.png') center center no-repeat;
 
 }
-
-.content__news__title {
+.content__news {
+    margin-bottom: 75px;
+}
+.content__news__title,.content__reviews__title {
     text-align: left;
     font-size: 17px;
     font-weight: bold;
@@ -235,6 +237,7 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    flex-wrap: wrap;
     width: 100%;
     height: 334px;
 }
@@ -344,4 +347,111 @@ a {
     opacity: 0;
     transition: 0.3s ease all;
     z-index: 200;
+}
+.content__reviews__list {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.content__reviews__list__item {
+    width: 47%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-bottom: 50px;
+    position: relative;
+    cursor: pointer;
+}
+.content__reviews__list__item:hover .content__reviews__list-img{
+    filter: brightness(50%);
+}
+.content__reviews__list__item:hover .content__reviews__list-title {
+    color: #FF7931;
+}
+.content__reviews__list__item:hover .content__reviews__list-bottom {
+    opacity: 1;
+}
+.content__reviews__list__item:hover .content__reviews__list-flag {
+    opacity: 1;
+}
+.content__reviews__list-img {
+    transition: 0.3s ease all;
+}
+.content__reviews__list-title {
+    font-family: "Playfair Display";
+    font-size: 23px;
+    font-weight: 900;
+    margin: 10px 0px;
+}
+.content__reviews__list-text {
+    font-size: 14px;
+}
+.content__reviews__list-flag {
+    z-index: 200;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    opacity: 0;
+    transition: 0.3s ease all;
+}
+.content__reviews__list-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: 175px;
+    left: 20px;
+    width: 100px;
+    opacity: 0;
+    transition: 0.3s ease all;
+}
+.content__reviews__list-bottom-part {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: lightgrey;
+    font-weight: 100;
+    transition: 0.3s ease all;
+}
+.content__reviews__list-bottom-part img {
+    margin-right: 5px;
+}
+.content__reviews__pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 426px;
+    color: #A6A6A6;
+    margin: 0px auto;
+}
+.content__reviews__pagination-aside {
+    display: flex;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+}
+.content__reviews__pagination-line {
+    background-color: #A6A6A6;
+    width: 1px;
+    height: 27px;
+    margin: 20px;
+}
+.content__reviews__pagination-right_rerectangle {
+    transform: rotate(180deg);
+}
+.content__reviews__pagination-center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 190px;
+}
+.content__reviews__pagination-number {
+    font-size: 14px;
+    cursor: pointer;
+}
+.content__reviews__pagination-number-active {
+    color: black;
+    font-size: 20px;
+    border-bottom: 3px solid #FF7931;
 }
