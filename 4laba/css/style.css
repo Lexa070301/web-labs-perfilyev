@@ -49,6 +49,7 @@ a {
 .header__menu__item-link:hover {
     text-decoration: underline;
 }
+
 .banner {
     height: 464px;
     box-sizing: border-box;
@@ -57,6 +58,7 @@ a {
     color: white;
     padding: 60px 0px 45px 0px;
 }
+
 .banner > .container {
     display: flex;
     flex-direction: column;
@@ -64,6 +66,7 @@ a {
     justify-content: space-between;
     height: 100%;
 }
+
 .banner__new {
     text-transform: uppercase;
     display: flex;
@@ -74,51 +77,117 @@ a {
     font-size: 16px;
     background-color: #FF7931;
 }
+
 .banner__title {
     font-weight: lighter;
     text-align: center;
     font-size: 72px;
     text-transform: uppercase;
 }
+
 .banner__pagination {
     display: flex;
     justify-content: space-around;
     align-items: center;
     width: 100%;
 }
-.banner__pagination__prev,.banner__pagination__next,.banner__pagination__center {
+
+.banner__pagination__prev, .banner__pagination__next, .banner__pagination__center {
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
 }
+
 .banner__pagination__center {
     cursor: default;
 }
+
 .banner__pagination__text {
     font-size: 13px;
 }
+
 .banner__pagination__line {
     width: 64px;
     height: 1px;
     background-color: white;
     margin: 0px 10px;
 }
+
 .banner__pagination__vertical_line {
     height: 42px;
     width: 1px;
     background-color: white;
     margin: 0px 15px;
 }
+
 .banner__pagination__rectangle {
     cursor: pointer;
 }
+
 .banner__pagination__rectangle-right {
     transform: rotate(180deg);
 }
+
 .banner__text {
     font-size: 14px;
     text-align: center;
     max-width: 456px;
     font-weight: lighter;
+}
+.content {
+    padding-top: 100px;
+}
+.content > .container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.content__left {
+    width: 65%;
+}
+
+.content__right {
+    width: 32%;
+}
+
+.content__balloons {
+    width: 100%;
+    box-sizing: border-box;
+    height: 479px;
+    background: url('../img/balloons_bg.png') center center no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 0px 30px 0px;
+}
+
+.content__balloons__title {
+    text-transform: uppercase;
+    font-size: 30px;
+    font-family: "Playfair Display";
+    font-weight: 900;
+    text-align: center;
+}
+
+.content__balloons__btn {
+    border: 0;
+    background-color: #FF7931;
+    width: 170px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 47px;
+    text-transform: uppercase;
+    outline: none;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.content__balloons__btn-img {
+    margin-left: 10px;
 }
