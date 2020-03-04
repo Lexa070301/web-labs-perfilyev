@@ -1,0 +1,146 @@
+@media screen and (max-width: 1200px) {
+    .container {
+        width: 95%;
+    }
+
+    .content__news__block {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .content__news__left {
+        width: auto;
+    }
+
+    .content__news__list {
+        flex-direction: row;
+        flex-wrap: wrap;
+
+    }
+
+    .content__news__main {
+        margin-bottom: 20px;
+    }
+
+    .content__news__right {
+        width: auto;
+    }
+
+    .content__news__list__item {
+        justify-content: flex-start;
+        margin: 10px 0px;
+    }
+
+    .bottom__img-wrap:nth-child(4) {
+        display: none;
+    }
+
+    .bottom .container {
+        justify-content: center;
+    }
+    .bottom__img-wrap {
+        margin: 0px 10px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .content__ballet {
+        flex-direction: column;
+    }
+
+    .content__ballet__title {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+}
+
+@media screen and (max-width: 800px) {
+    .content__reviews__list__item {
+        width: 100%;
+    }
+
+    .content__left {
+        width: 49%;
+    }
+
+    .content__right {
+        width: 49%;
+    }
+
+    .content__reviews__pagination {
+        width: auto;
+    }
+
+    .content__ballet__title {
+        text-align: center;
+    }
+
+    .bottom__img-wrap:nth-child(2) {
+        display: none;
+    }
+    .burger {
+        display: flex;
+    }
+    .menu {
+        display: block;
+        padding: 0;
+        overflow-y: scroll;
+        position: fixed;
+    }
+    .menu nav {
+        width: 100%;
+    }
+    .header__menu-mobile {
+        padding-top: 50px;
+    }
+    .close {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
+    .header__menu__item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #F9F9FC;
+        padding: 15px;
+        margin: 10px 0px;
+    }
+    .header__menu {
+        display: none;
+    }
+    .header__menu-mobile {
+        display: flex;
+    }
+    .header__menu-mobile {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .content > .container {
+        flex-direction: column;
+    }
+
+    .content__left, .content__right {
+        width: 100%;
+    }
+    .bottom__img-wrap:nth-child(3) {
+        display: none;
+    }
+    .banner__pagination {
+        display: none;
+    }
+    .banner__title {
+        font-size: 30px;
+    }
+    .banner__pagination-mobile {
+        display: flex;
+        justify-content: space-around;
+        width: 110px;
+    }
+    .banner {
+        height: 350px;
+    }
+}

@@ -9,9 +9,75 @@
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap&subset=cyrillic"
           rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/media.css">
 </head>
 <body>
+<div class="menu">
+    <img src="img/close.png" alt="Закрыть" class="close">
+    <nav>
+        <ul class="header__menu header__menu-mobile">
+            <li class="header__menu__item">
+                <a href="" class="header__menu__item-link">
+                    НОВОСТИ
+                </a>
+                <img src="img/arrow-right.png" alt="Стрелка вправо">
+            </li>
+            <li class="header__menu__item">
+                <a href="" class="header__menu__item-link">
+                    ОБЗОРЫ
+                </a>
+                <img src="img/arrow-right.png" alt="Стрелка вправо">
+            </li>
+            <li class="header__menu__item">
+                <a href="" class="header__menu__item-link">
+                    МУЗЫКА
+                </a>
+                <img src="img/arrow-right.png" alt="Стрелка вправо">
+            </li>
+            <li class="header__menu__item">
+                <a href="" class="header__menu__item-link">
+                    АРХИТЕКТУРА
+                </a>
+                <img src="img/arrow-right.png" alt="Стрелка вправо">
+            </li>
+            <li class="header__menu__item">
+                <a href="" class="header__menu__item-link">
+                    КИНО
+                </a>
+                <img src="img/arrow-right.png" alt="Стрелка вправо">
+            </li>
+            <li class="header__menu__item">
+                <a href="" class="header__menu__item-link">
+                    ТЕАТР
+                </a>
+                <img src="img/arrow-right.png" alt="Стрелка вправо">
+            </li>
+            <li class="header__menu__item">
+                <a href="" class="header__menu__item-link">
+                    ЛИТЕРАТУРА
+                </a>
+                <img src="img/arrow-right.png" alt="Стрелка вправо">
+            </li>
+            <li class="header__menu__item">
+                <a href="" class="header__menu__item-link">
+                    РЕЛИГИЯ
+                </a>
+                <img src="img/arrow-right.png" alt="Стрелка вправо">
+            </li>
+            <li class="header__menu__item">
+                <a href="" class="header__menu__item-link">
+                    ЖИВОПИСЬ
+                </a>
+                <img src="img/arrow-right.png" alt="Стрелка вправо">
+            </li>
+        </ul>
+    </nav>
+</div>
+<div class="burger">
+    <span></span>
+</div>
 <header class="header">
+
     <div class="container">
         <h1 class="header__title">Новости культуры</h1>
         <nav>
@@ -91,6 +157,13 @@
                 Как известно, Дубай – город контрастов. Самые революционные и фантастические мечты архитекторов
                 способен воплотить в жизнь этот мегаполис, построенный на нефти и за счет нефти
             </p>
+            <div class="banner__pagination-mobile">
+                <div class="banner__pagination-mobile__dot banner__pagination-mobile__dot-active"></div>
+                <div class="banner__pagination-mobile__dot"></div>
+                <div class="banner__pagination-mobile__dot"></div>
+                <div class="banner__pagination-mobile__dot"></div>
+                <div class="banner__pagination-mobile__dot"></div>
+            </div>
         </div>
     </section>
     <section class="content">
@@ -380,6 +453,7 @@
         <span class="footer__span">@ 2018 Новости культуры. Все права защищены.</span>
     </div>
 </footer>
+<script src="js/jquery-3.4.1.min.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
