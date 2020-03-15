@@ -3,30 +3,7 @@ body {
     font-family: "Roboto Slab", "Times New Roman", serif;
     color: #191919;
 }
-@media print {
-    header, section {
-        page‐break‐after: always; /* Добавляет разрыв страницы при печати документа после заданного элемента.*/
-        page-break-inside: avoid; /* Запрещает разрыв страницы внутри элемента при печати. */
-    }
-    .header__menu__item__link:after {
-        content: " (" attr(href) ")";
-    }
-    .header__menu {
-        width: 700px!important;
-    }
-    .header__top {
-        justify-content: space-between!important;
-    }
-}
-@page :first {
-    margin: 1cm; /* Отступы для первой страницы */
-}
-@page :left {
-    margin: 1cm 3cm 1cm 1.5cm; /* Отступы для всех левых страниц */
-}
-@page :right {
-    margin: 1cm 3cm 1cm 1.5cm; /* Отступы для всех правых страниц */
-}
+
 ul, ol, p, h1, h2, h3, h4, h4, h6 {
     padding: 0;
     margin: 0;
@@ -315,4 +292,27 @@ footer .container {
 }
 .footer__link:hover {
     text-decoration: underline;
+}
+@media print {
+    .services {
+        page‐break‐after: always; /* Добавляет разрыв страницы при печати документа после заданного элемента.*/
+    }
+    .header__menu__item__link:after {
+        content: " (" attr(href) ")";
+    }
+    .header__menu {
+        width: 700px!important;
+    }
+    .header__top {
+        justify-content: space-between!important;
+    }
+}
+@page :first {
+    margin: 1cm; /* Отступы для первой страницы */
+}
+@page :left {
+    margin: 1cm 3cm 1cm 1.5cm; /* Отступы для всех левых страниц */
+}
+@page :right {
+    margin: 1cm 3cm 1cm 1.5cm; /* Отступы для всех правых страниц */
 }
