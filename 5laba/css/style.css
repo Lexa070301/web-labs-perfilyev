@@ -297,6 +297,19 @@ footer .container {
     .services {
         page‐break‐after: always; /* Добавляет разрыв страницы при печати документа после заданного элемента.*/
     }
+    header {
+        background-image: none;
+        color: black!important;
+    }
+    footer {
+        display: none;
+    }
+    .header__menu__item__link {
+        color: black!important;
+    }
+    .form_block {
+        display: none;
+    }
     .header__menu__item__link:after {
         content: " (" attr(href) ")";
     }
