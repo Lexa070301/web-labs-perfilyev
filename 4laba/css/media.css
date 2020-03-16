@@ -34,12 +34,23 @@
     .bottom__img-wrap:nth-child(4) {
         display: none;
     }
-
+    .content__reviews__list-img {
+        width: 290px;
+    }
     .bottom .container {
         justify-content: center;
     }
     .bottom__img-wrap {
         margin: 0px 10px;
+    }
+    .content__reviews__list__item {
+        align-items: center;
+    }
+    .content__reviews__list-title {
+        text-align: center;
+    }
+    .content__reviews__list-text {
+        text-align: center;
     }
 }
 
@@ -52,6 +63,9 @@
         margin-right: 0;
         margin-bottom: 10px;
     }
+    .content__reviews__list-img {
+        width: 200px;
+    }
 
 }
 
@@ -59,7 +73,9 @@
     .content__reviews__list__item {
         width: 100%;
     }
-
+    .content__reviews__list-img {
+        width: 300px;
+    }
     .content__left {
         width: 49%;
     }
