@@ -4,7 +4,7 @@ body {
   font-family: "Oswald", Helvetica sans-serif;
 }
 
-ul, p {
+ul, h1, h2, h3, h4, h5, p {
   padding: 0;
   margin: 0;
 }
@@ -35,6 +35,7 @@ header .header__img {
 }
 .css .css__title, .css .js__title, .js .css__title, .js .js__title {
   margin-top: 0;
+  color: #333333;
 }
 .css .css__content, .css .js__content, .js .css__content, .js .js__content {
   padding-top: 30px;
@@ -64,6 +65,7 @@ header .header__img {
 .css .css__block__name, .css .js__block__name, .js .css__block__name, .js .js__block__name {
   font-size: 24px;
   transition: 0.3s ease all;
+  color: #FA6ACC;
 }
 .css .css__block__description, .css .js__block__description, .js .css__block__description, .js .js__block__description {
   font-size: 18px;

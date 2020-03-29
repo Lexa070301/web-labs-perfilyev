@@ -5,6 +5,13 @@ $font-color: white;
   margin: 0;
 }
 
+$colors: (
+        pink-color: #FA6ACC,
+        red-color: #F02A52,
+        sky: #09A6E4
+);
+
+
 body {
   @include margins_and_paddings;
   font-family: 'Oswald', Helvetica sans-serif;
@@ -12,6 +19,10 @@ body {
 
 ul, p {
   @include margins_and_paddings;
+}
+
+h1, h2, h3, h4, h5, h5 {
+  @extend ul;
 }
 
 header {
@@ -40,9 +51,12 @@ header {
 
 .css, .js {
   padding: 30px 0px;
+
   .css__title, .js__title {
     margin-top: 0;
+    color: lighten($maincolor, 20%)
   }
+
   .css__content, .js__content {
     padding-top: 30px;
   }
@@ -52,6 +66,7 @@ header {
       box-shadow: 0px 0px 25px rgba(0, 0, 0, .5);
       margin-top: -20px;
       padding-bottom: 45px;
+
       .css__block__img, .js__block__img {
         transform: scale(1.1);
       }
@@ -64,31 +79,36 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    padding: 25px;
+    padding: 5px * 5;
 
   }
+
   .css__block__img, .js__block__img {
     transition: 0.3s ease all;
     width: 80%;
   }
 
   .css__block__name, .js__block__name {
-    font-size: 24px;
+    font-size: 12px + 12px;
     transition: 0.3s ease all;
+    color: map_get($colors, pink-color);
   }
 
   .css__block__description, .js__block__description {
-    font-size: 18px;
+    font-size: 20px - 2px;
     font-weight: lighter;
   }
 }
+
 footer {
   padding: 30px 0px;
   background: url("../img/footer-bg.png") repeat-x;
 }
+
 .footer__block {
   margin-bottom: 0;
 }
+
 .footer__text {
   color: white;
   text-shadow: 0px 0px 10px $maincolor;
@@ -96,4 +116,5 @@ footer {
   font-size: 20px;
   height: 20px;
 }
+
 @import 'media.scss';
