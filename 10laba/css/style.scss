@@ -1,0 +1,125 @@
+$maincolor: #000;
+$font-color: white;
+@mixin margins_and_paddings {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  @include margins_and_paddings;
+  font-family: 'Oswald', Helvetica sans-serif;
+}
+
+ul, p {
+  @include margins_and_paddings;
+}
+
+header {
+  height: 100vh;
+  background: url("../img/banner_bg.jpg") no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+
+  .container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .header__title {
+    color: $font-color;
+    text-shadow: 0px 0px 10px $maincolor;
+  }
+
+  .header__img {
+    margin-top: 100px;
+    height: 30px;
+  }
+}
+
+.css, .js {
+  padding: 30px 0px;
+  .css__title, .js__title {
+    margin-top: 0;
+  }
+  .css__content, .js__content {
+    padding-top: 30px;
+  }
+
+  .css__block, .js__block {
+    &:hover {
+      box-shadow: 0px 0px 25px rgba(0, 0, 0, .5);
+      margin-top: -20px;
+      padding-bottom: 45px;
+      .css__block__img, .js__block__img {
+        transform: scale(1.1);
+      }
+    }
+
+    transition: 0.3s ease all;
+    cursor: pointer;
+    height: 570px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 25px;
+
+  }
+  .css__block__img, .js__block__img {
+    transition: 0.3s ease all;
+    width: 80%;
+  }
+
+  .css__block__name, .js__block__name {
+    font-size: 24px;
+    transition: 0.3s ease all;
+  }
+
+  .css__block__description, .js__block__description {
+    font-size: 18px;
+    font-weight: lighter;
+  }
+}
+footer {
+  padding: 30px 0px;
+  background: url("../img/footer-bg.png") repeat-x;
+}
+.footer__block {
+  margin-bottom: 0;
+}
+.footer__text {
+  color: white;
+  text-shadow: 0px 0px 10px $maincolor;
+  line-height: 20px;
+  font-size: 20px;
+  height: 20px;
+}
+
+@media screen and (max-width: 992px) {
+  .css__block__img, .js__block__img {
+    width: 50%!important;
+  }
+  .css__block, .js__block {
+    height: auto!important;
+    margin-bottom: 30px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .header__title {
+    font-size: 36px;
+  }
+  .css__title, .js__title {
+    font-size: 24px;
+  }
+  .css__block__name, .js__block__name {
+    font-size: 20px!important;
+  }
+  .css__block__description, .js__block__description {
+    font-size: 16px!important;
+  }
+  .footer__text {
+    font-size: 16px;
+  }
+}

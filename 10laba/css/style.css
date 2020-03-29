@@ -1,0 +1,122 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Oswald", Helvetica sans-serif;
+}
+
+ul, p {
+  padding: 0;
+  margin: 0;
+}
+
+header {
+  height: 100vh;
+  background: url("../img/banner_bg.jpg") no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+header .container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+header .header__title {
+  color: white;
+  text-shadow: 0px 0px 10px #000;
+}
+header .header__img {
+  margin-top: 100px;
+  height: 30px;
+}
+
+.css, .js {
+  padding: 30px 0px;
+}
+.css .css__title, .css .js__title, .js .css__title, .js .js__title {
+  margin-top: 0;
+}
+.css .css__content, .css .js__content, .js .css__content, .js .js__content {
+  padding-top: 30px;
+}
+.css .css__block, .css .js__block, .js .css__block, .js .js__block {
+  transition: 0.3s ease all;
+  cursor: pointer;
+  height: 570px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 25px;
+}
+.css .css__block:hover, .css .js__block:hover, .js .css__block:hover, .js .js__block:hover {
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.5);
+  margin-top: -20px;
+  padding-bottom: 45px;
+}
+.css .css__block:hover .css__block__img, .css .css__block:hover .js__block__img, .css .js__block:hover .css__block__img, .css .js__block:hover .js__block__img, .js .css__block:hover .css__block__img, .js .css__block:hover .js__block__img, .js .js__block:hover .css__block__img, .js .js__block:hover .js__block__img {
+  transform: scale(1.1);
+}
+.css .css__block__img, .css .js__block__img, .js .css__block__img, .js .js__block__img {
+  transition: 0.3s ease all;
+  width: 80%;
+}
+.css .css__block__name, .css .js__block__name, .js .css__block__name, .js .js__block__name {
+  font-size: 24px;
+  transition: 0.3s ease all;
+}
+.css .css__block__description, .css .js__block__description, .js .css__block__description, .js .js__block__description {
+  font-size: 18px;
+  font-weight: lighter;
+}
+
+footer {
+  padding: 30px 0px;
+  background: url("../img/footer-bg.png") repeat-x;
+}
+
+.footer__block {
+  margin-bottom: 0;
+}
+
+.footer__text {
+  color: white;
+  text-shadow: 0px 0px 10px #000;
+  line-height: 20px;
+  font-size: 20px;
+  height: 20px;
+}
+
+@media screen and (max-width: 992px) {
+  .css__block__img, .js__block__img {
+    width: 50% !important;
+  }
+
+  .css__block, .js__block {
+    height: auto !important;
+    margin-bottom: 30px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .header__title {
+    font-size: 36px;
+  }
+
+  .css__title, .js__title {
+    font-size: 24px;
+  }
+
+  .css__block__name, .js__block__name {
+    font-size: 20px !important;
+  }
+
+  .css__block__description, .js__block__description {
+    font-size: 16px !important;
+  }
+
+  .footer__text {
+    font-size: 16px;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
