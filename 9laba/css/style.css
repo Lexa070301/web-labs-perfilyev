@@ -1,0 +1,331 @@
+body {
+    box-sizing: border-box;
+    font-family: "Roboto Slab", "Times New Roman", serif;
+    color: #191919;
+}
+
+ul, ol, p, h1, h2, h3, h4, h4, h6 {
+    padding: 0;
+    margin: 0;
+}
+
+button, input {
+    outline: 0;
+    border: 0;
+}
+.common-title {
+    font-size: 42px;
+}
+.common-title:after {
+    display: block;
+    content: '';
+    width: 100px;
+    height: 3px;
+    margin-top: 7px;
+    background-color: #191919;
+}
+a {
+    text-decoration: none;
+    color: #191919;
+}
+
+.container {
+    width: 1170px;
+    margin: 0px auto;
+}
+
+header {
+    height: 100vh;
+    background: url("../img/header_bg.jpg") no-repeat;
+    color: white;
+}
+
+header > .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.header__top {
+    padding: 10px 0px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+
+}
+
+.header__logo__img {
+    transition: 0.3s ease all;
+}
+
+.header__logo__img:hover {
+    transform: scale(1.1);
+}
+
+.header__title {
+    font-weight: bolder;
+    text-align: center;
+    font-size: 72px;
+    margin-top: -100px;
+}
+
+.header__menu {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+}
+
+.header__menu__item {
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+    transition: 0.3s ease all;
+    position: relative;
+}
+
+.header__menu__item:hover .header__menu__item__img {
+    margin-right: 10px;
+    transform: scale(1.2);
+}
+
+.header__menu__item__link:hover {
+    text-decoration: underline;
+}
+
+.header__menu__item__link {
+    color: white;
+    font-size: 18px;
+    line-height: 25px;
+    transition: 0.3s ease all;
+}
+
+.header__menu__item__img {
+    margin-right: 5px;
+    transition: 0.3s ease all;
+    height: 20px;
+}
+
+.header__arrow {
+    margin-bottom: 100px;
+    transform: rotate(90deg);
+}
+
+.header__arrow__img {
+    width: 40px;
+    transition: 0.3s ease all;
+}
+
+.header__arrow__img:hover {
+    transform: scale(1.1);
+}
+.about {
+    padding: 70px 0px;
+}
+.about__list {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 30px;
+}
+.about__list__item__img {
+    height: 65px;
+}
+.about__list__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 25%;
+    padding: 20px 0px;
+    transition: 0.3s ease all;
+    cursor: pointer;
+    height: 200px;
+    box-sizing: border-box;
+}
+.about__list__item:hover {
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.3);
+    padding: 10px 0px;
+}
+.about__list__item__title {
+    font-weight: 700;
+}
+.about__list__item__text {
+    text-align: center;
+    width: 80%;
+    font-weight: 300;
+}
+.services {
+    padding: 70px 0px;
+    background-color: #f5f5f5;
+}
+.services__list {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+}
+.services__list__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 24%;
+    background-color: white;
+    text-align: center;
+
+}
+.services__list__item:hover .services__list__item__img{
+    filter: grayscale(0%);
+}
+.services__list__item__title {
+    margin-top: 15px;
+}
+.services__list__item__text {
+    font-weight: 300;
+    margin-top: 15px;
+    width: 95%;
+}
+.services__list__item__btn {
+    margin: 15px 0px;
+    box-sizing: border-box;
+    width: 200px;
+    height: 50px;
+    background-color: #7fcdff;
+    cursor: pointer;
+    transition: 0.3s ease all;
+    font-weight: 300;
+    font-size: 20px;
+}
+.services__list__item__btn:hover {
+    background-color: #7eabff;
+}
+.services__list__item__img {
+    width: 100%;
+    transition: 0.3s ease all;
+    filter: grayscale(80%);
+}
+.form_block {
+    padding: 70px 0px;
+}
+.form_block__title {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.form_block__form {
+    display: flex;
+    width: 60%;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.form_block__content {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+.form_block__img {
+    width: 30%;
+}
+.form_block__form_input {
+    height: 75px;
+    width: 70%;
+    box-sizing: border-box;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #9b9b9b;
+    font-size: 20px;
+    transition: 0.3s ease all;
+}
+.form_block__form_input:focus {
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.2);
+    border-bottom: 1px solid rgba(255,255,255,0);
+}
+.form_block__label {
+    margin-bottom: 10px;
+}
+
+.form_block__btn {
+    margin: 15px 0px;
+    box-sizing: border-box;
+    width: 300px;
+    height: 50px;
+    background-color: #7fcdff;
+    cursor: pointer;
+    transition: 0.3s ease all;
+    font-weight: 300;
+    font-size: 20px;
+}
+.form_block__btn:hover {
+    background-color: #7eabff;
+}
+footer {
+    padding: 20px 0px;
+    background-color: #212121;
+    color: white;
+}
+footer .container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.footer__logo__img {
+    transition: 0.3s ease all;
+}
+
+.footer__logo__img:hover {
+    transform: scale(1.1);
+}
+.footer__link {
+    color: white;
+}
+.footer__link:hover {
+    text-decoration: underline;
+}
+@media print {
+    .services {
+        page‐break‐after: always; /* Добавляет разрыв страницы при печати документа после заданного элемента.*/
+    }
+    header {
+        background-image: none;
+        color: black!important;
+    }
+    footer {
+        display: none;
+    }
+    .header__menu__item__link {
+        color: black!important;
+    }
+    .form_block {
+        display: none;
+    }
+    .header__menu__item__link:after {
+        content: " (" attr(href) ")";
+    }
+    .header__menu {
+        width: 700px!important;
+    }
+    .header__top {
+        justify-content: space-between!important;
+    }
+}
+@page :first {
+    margin: 1cm; /* Отступы для первой страницы */
+}
+@page :left {
+    margin: 1cm 3cm 1cm 1.5cm; /* Отступы для всех левых страниц */
+}
+@page :right {
+    margin: 1cm 3cm 1cm 1.5cm; /* Отступы для всех правых страниц */
+}
