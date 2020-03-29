@@ -44,6 +44,7 @@ a {
 header {
     height: 100vh;
     background: url("../img/header_bg.jpg") no-repeat;
+    background-size: cover;
     color: white;
 }
 
@@ -323,11 +324,9 @@ footer .container {
 
 .footer__link {
     color: white;
-}
-
-.footer__link:hover {
     text-decoration: underline;
 }
+
 
 @media print {
     .services {
