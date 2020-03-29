@@ -1,0 +1,26 @@
+@media screen and (max-width: 992px) {
+  .css__block__img, .js__block__img {
+    width: 50%!important;
+  }
+  .css__block, .js__block {
+    height: auto!important;
+    margin-bottom: 30px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .header__title {
+    font-size: 36px;
+  }
+  .css__title, .js__title {
+    font-size: 24px;
+  }
+  .css__block__name, .js__block__name {
+    font-size: 20px!important;
+  }
+  .css__block__description, .js__block__description {
+    font-size: 16px!important;
+  }
+  .footer__text {
+    font-size: 16px;
+  }
+}
