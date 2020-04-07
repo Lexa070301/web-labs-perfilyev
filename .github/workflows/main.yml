@@ -23,5 +23,9 @@ jobs:
     - uses: actions/checkout@v2
 
     # Runs a single command using the runners shell
-    - name: Run a one-line script
-      run: git push http://web-labs-2sem.std-944.ist.mospolytech.ru/
+    - name: Run a multi-line script
+      run: |
+        cd ../,
+        cd ../,
+        git push http://web-labs-2sem.std-944.ist.mospolytech.ru/.
+        
