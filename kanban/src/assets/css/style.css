@@ -100,8 +100,8 @@
   background: url("../img/check-mark-white.svg");
 }
 .add-card {
-  width: 70px;
-  height: 70px;
+  width: 50px;
+  height: 50px;
   border-radius: 10px;
   background: url("../img/pluss-white.svg") center center no-repeat, #03A9F4;
   background-size: 60%;

@@ -58,43 +58,8 @@
             return {
                 title: 'Канбан',
                 stages: ['План', 'В работе', 'Готово'],
-                blocks: [
-                    {
-                        id: 1,
-                        number: 1,
-                        status: 'План',
-                        description: 'Описание',
-                        start_date: new Intl.DateTimeFormat('ru-RU', {
-                            year: 'numeric', month: 'numeric', day: 'numeric',
-                            hour: 'numeric', minute: 'numeric', second: 'numeric',
-                            hour12: false
-                        }).format(new Date),
-                        end_date: new Intl.DateTimeFormat('ru-RU', {
-                            year: 'numeric', month: 'numeric', day: 'numeric',
-                            hour: 'numeric', minute: 'numeric', second: 'numeric',
-                            hour12: false
-                        }).format(new Date),
-                        name: 'Alexey'
-                    },
-                    {
-                        id: 2,
-                        number: 2,
-                        status: 'План',
-                        description: 'Описание',
-                        start_date: new Intl.DateTimeFormat('ru-RU', {
-                            year: 'numeric', month: 'numeric', day: 'numeric',
-                            hour: 'numeric', minute: 'numeric', second: 'numeric',
-                            hour12: false
-                        }).format(new Date),
-                        end_date: new Intl.DateTimeFormat('ru-RU', {
-                            year: 'numeric', month: 'numeric', day: 'numeric',
-                            hour: 'numeric', minute: 'numeric', second: 'numeric',
-                            hour12: false
-                        }).format(new Date),
-                        name: 'Alexey'
-                    }
-                ],
-                count: {'План': 2, 'В работе': 0, 'Готово': 0}
+                blocks: [],
+                count: {'План': 0, 'В работе': 0, 'Готово': 0}
             }
         },
         methods: {
@@ -111,6 +76,8 @@
                     if (this.blocks[i].status === 'Готово')
                         this.count['Готово']++;
                 }
+                console.log(this.blocks[0].start_date.split(',')[0])
+                console.log(Date.parse(this.blocks[0].start_date.split(',')[0]))
             },
             delete_card(block) {
                 block.status = 'deleted';
@@ -127,7 +94,6 @@
                 }
             },
             add_card() {
-                console.log(this.blocks.length)
                 for (var i = 0; i <= this.blocks.length - 1; i++) {
 
                 }
