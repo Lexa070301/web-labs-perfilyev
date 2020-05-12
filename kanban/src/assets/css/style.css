@@ -1,69 +1,102 @@
 .container {
-    width: 1170px;
-    margin: 0px auto;
+  width: 1170px;
+  margin: 0px auto;
 }
 
 .drag-column {
-    background: #03A9F4;
-    border-radius: 15px;
+  background: #03A9F4;
+  border-radius: 15px;
+  text-align: left;
 }
 
 .drag-column h2 {
-    text-transform: none;
-    font-size: 22px;
-    color: white;
+  text-transform: none;
+  font-size: 22px;
+  color: white;
 }
 
 .drag-item {
-    border-radius: 10px;
-    background: #0288D1;
-    height: auto;
+  border-radius: 10px;
+  background: #0288D1;
+  height: auto;
+  position: relative;
+  min-height: 100px;
 }
 
 .drag-item:hover {
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
 }
 
 .is-moving {
-    background: #0288D1 !important;
-    color: white !important;
-    transform: scale(1.1) !important;
+  background: #0288D1 !important;
+  color: white !important;
+  transform: scale(1.1) !important;
 }
 
 .gu-transit {
-    transform: scale(1) !important;
-    opacity: 0.3;
+  transform: scale(1) !important;
+  opacity: 0.3;
 }
 
 .gu-mirror {
-    opacity: 0.9;
+  opacity: 0.9;
 }
 
 .main__title {
-    margin-bottom: 50px;
-    font-size: 46px;
+  margin-bottom: 50px;
+  font-size: 46px;
+  text-align: left;
 }
 
 .drag-inner-list {
-    min-height: 130px;
+  min-height: 130px;
 }
 
 .task-number {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .description {
-    font-size: 16px;
-    font-weight: lighter;
-    margin-bottom: 5px;
+  font-size: 16px;
+  font-weight: lighter;
+  margin-bottom: 5px;
 }
 
 .start_date, .end_date, .end_date span {
-    font-size: 16px;
-    font-weight: lighter;
-    margin-bottom: 5px;
-    display: block;
+  font-size: 16px;
+  font-weight: lighter;
+  margin-bottom: 5px;
+  display: block;
 }
 
+.btn {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  border: 0;
+  outline: none;
+}
+.close {
+  right: 10px;
+  top: 10px;
+  background: url("../img/close-white.svg");
+}
+.edit {
+  right: 10px;
+  bottom: 35px;
+  background: url("../img/edit-white.svg");
+}
+.confirm {
+  right: 10px;
+  bottom: 10px;
+  background: url("../img/check-mark-white.svg");
+}
+.add-card {
+  width: 70px;
+  height: 70px;
+  background: #0288D1;
+  color: white;
+}

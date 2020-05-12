@@ -1,6 +1,9 @@
 <template>
-  <div class="kanban">
+  <div class="kanban container">
     <h1 class="main__title">{{ title }}</h1>
+    <button class="add-card">
+
+    </button>
     <kanban-board :stages="stages" :blocks="blocks" @update-block="updateBlock">
       <div v-for="stage in stages" :slot="stage" :key="stage">
         <h2 class="column-title">
@@ -9,7 +12,7 @@
       </div>
       <div v-for="block in blocks" :slot="block.id" :key="block.id">
         <div class="task-number">
-          <strong>Задача №</strong> {{ block.id }}
+          <strong>Задача №</strong> {{ block.number }}
         </div>
         <div class="description">
           {{ block.description }}
@@ -40,6 +43,9 @@
           <br>
           {{ block.name }}
         </div>
+        <button class="btn close" @click="delete_card(block)"></button>
+        <button class="btn edit"></button>
+        <button class="btn confirm"></button>
       </div>
     </kanban-board>
   </div>
@@ -55,6 +61,24 @@
                 blocks: [
                     {
                         id: 1,
+                        number: 1,
+                        status: 'План',
+                        description: 'Welcome',
+                        start_date: new Intl.DateTimeFormat('ru-RU', {
+                            year: 'numeric', month: 'numeric', day: 'numeric',
+                            hour: 'numeric', minute: 'numeric', second: 'numeric',
+                            hour12: false
+                        }).format(new Date),
+                        end_date: new Intl.DateTimeFormat('ru-RU', {
+                            year: 'numeric', month: 'numeric', day: 'numeric',
+                            hour: 'numeric', minute: 'numeric', second: 'numeric',
+                            hour12: false
+                        }).format(new Date),
+                        name: 'Alexey'
+                    },
+                    {
+                        id: 2,
+                        number: 2,
                         status: 'План',
                         description: 'Welcome',
                         start_date: new Intl.DateTimeFormat('ru-RU', {
@@ -70,7 +94,7 @@
                         name: 'Alexey'
                     }
                 ],
-                count: {'План': 1, 'В работе': 0, 'Готово': 0}
+                count: {'План': 2, 'В работе': 0, 'Готово': 0}
             }
         },
         methods: {
@@ -87,20 +111,21 @@
                     if (this.blocks[i].status === 'Готово')
                         this.count['Готово']++;
                 }
-
             },
-            change_date(block) {
-                console.log('test')
-                block.start_date = new Intl.DateTimeFormat('ru-RU', {
-                    year: 'numeric', month: 'numeric', day: 'numeric',
-                    hour: 'numeric', minute: 'numeric', second: 'numeric',
-                    hour12: false
-                }).format(new Date);
+            delete_card(block) {
+                block.status = 'deleted';
+                this.count['План'] = 0;
+                this.count['В работе'] = 0;
+                this.count['Готово'] = 0;
+                for (var i = 0; i <= this.blocks.length - 1; i++) {
+                    if (this.blocks[i].status === 'План')
+                        this.count['План']++;
+                    if (this.blocks[i].status === 'В работе')
+                        this.count['В работе']++;
+                    if (this.blocks[i].status === 'Готово')
+                        this.count['Готово']++;
+                }
             }
         }
     }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-</style>
