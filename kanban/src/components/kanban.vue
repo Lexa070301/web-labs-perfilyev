@@ -1,7 +1,7 @@
 <template>
   <div class="kanban container">
     <h1 class="main__title">{{ title }}</h1>
-    <button class="add-card">
+    <button class="add-card" @click="add_card">
 
     </button>
     <kanban-board :stages="stages" :blocks="blocks" @update-block="updateBlock">
@@ -63,7 +63,7 @@
                         id: 1,
                         number: 1,
                         status: 'План',
-                        description: 'Welcome',
+                        description: 'Описание',
                         start_date: new Intl.DateTimeFormat('ru-RU', {
                             year: 'numeric', month: 'numeric', day: 'numeric',
                             hour: 'numeric', minute: 'numeric', second: 'numeric',
@@ -80,7 +80,7 @@
                         id: 2,
                         number: 2,
                         status: 'План',
-                        description: 'Welcome',
+                        description: 'Описание',
                         start_date: new Intl.DateTimeFormat('ru-RU', {
                             year: 'numeric', month: 'numeric', day: 'numeric',
                             hour: 'numeric', minute: 'numeric', second: 'numeric',
@@ -114,6 +114,40 @@
             },
             delete_card(block) {
                 block.status = 'deleted';
+                this.count['План'] = 0;
+                this.count['В работе'] = 0;
+                this.count['Готово'] = 0;
+                for (var i = 0; i <= this.blocks.length - 1; i++) {
+                    if (this.blocks[i].status === 'План')
+                        this.count['План']++;
+                    if (this.blocks[i].status === 'В работе')
+                        this.count['В работе']++;
+                    if (this.blocks[i].status === 'Готово')
+                        this.count['Готово']++;
+                }
+            },
+            add_card() {
+                console.log(this.blocks.length)
+                for (var i = 0; i <= this.blocks.length - 1; i++) {
+
+                }
+                this.blocks.push({
+                    id: this.blocks.length+1,
+                    number: this.blocks.length+1,
+                    status: 'План',
+                    description: 'Описание',
+                    start_date: new Intl.DateTimeFormat('ru-RU', {
+                        year: 'numeric', month: 'numeric', day: 'numeric',
+                        hour: 'numeric', minute: 'numeric', second: 'numeric',
+                        hour12: false
+                    }).format(new Date),
+                    end_date: new Intl.DateTimeFormat('ru-RU', {
+                        year: 'numeric', month: 'numeric', day: 'numeric',
+                        hour: 'numeric', minute: 'numeric', second: 'numeric',
+                        hour12: false
+                    }).format(new Date),
+                    name: 'Alexey'
+                });
                 this.count['План'] = 0;
                 this.count['В работе'] = 0;
                 this.count['Готово'] = 0;
