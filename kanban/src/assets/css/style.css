@@ -28,6 +28,7 @@
   height: auto;
   position: relative;
   min-height: 100px;
+  overflow: hidden;
 }
 
 .drag-item:hover {
@@ -132,6 +133,7 @@
   box-sizing: border-box!important;
   height: auto!important;
   padding: 40px 20px!important;
+  color: black!important;
 }
 .close-btn {
   position: absolute;

@@ -36,11 +36,36 @@
         <button class="btn close" @click="delete_card(block)"></button>
         <button class="btn edit" @click="show"></button>
         <button class="btn confirm"></button>
+        <modal name="card_edit">
+          <button class="close-btn" @click="hide"></button>
+          <form id="form">
+            <label for="input-status">
+              Статус:
+              <select class="input input-status" id="input-status">
+                <option value="План">План</option>
+                <option value="В работе">В работе</option>
+                <option value="Готово">Готово</option>
+              </select>
+            </label>
+            <label for="input-description">
+              Описание:
+              <textarea class="input input-description" id="input-description">
+              </textarea>
+            </label>
+            <label v-if="(block.status=='В работе') || (block.status=='Готово')" for="input-name">
+              Ответственный:
+              <input type="text" class="input input-name" id="input-name">
+            </label>
+            <label for="input-start-date">
+              Дата начала:
+              <input type="text" class="input input-start-date" id="input-start-date">
+            </label>
+
+          </form>
+        </modal>
       </div>
     </kanban-board>
-    <modal name="card_edit">
-      <button class="close-btn" @click="hide"></button>
-    </modal>
+
   </div>
 </template>
 
