@@ -1,9 +1,7 @@
 <template>
   <div class="kanban container">
     <h1 class="main__title">{{ title }}</h1>
-    <button class="add-card" @click="add_card">
-
-    </button>
+    <button class="add-card" @click="add_card"></button>
     <kanban-board :stages="stages" :blocks="blocks" @update-block="updateBlock">
       <div v-for="stage in stages" :slot="stage" :key="stage">
         <h2 class="column-title">
@@ -36,10 +34,13 @@
           {{ block.name }}
         </div>
         <button class="btn close" @click="delete_card(block)"></button>
-        <button class="btn edit"></button>
+        <button class="btn edit" @click="show"></button>
         <button class="btn confirm"></button>
       </div>
     </kanban-board>
+    <modal name="card_edit">
+      <button class="close-btn" @click="hide"></button>
+    </modal>
   </div>
 </template>
 
@@ -109,6 +110,15 @@
                     if (this.blocks[i].status === 'Готово')
                         this.count['Готово']++;
                 }
+            },
+            show () {
+                this.$modal.show('card_edit');
+            },
+            hide () {
+                this.$modal.hide('card_edit');
+            },
+            apply () {
+                this.$modal.hide('card_edit');
             }
         }
     }

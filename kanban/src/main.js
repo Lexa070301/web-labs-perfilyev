@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import './plugins/vue-kanban'
 import moment from 'moment'
+import VModal from 'vue-js-modal'
 
 Vue.config.productionTip = false
 Vue.filter('formatDate', function(value) {
@@ -18,6 +19,7 @@ Vue.filter('formatTime', function(value) {
     return String(moment.duration(String(value)).days()) +' Дней '+ String(moment.duration(String(value)).hours()) + ' Часов ' + String(moment.duration(String(value)).minutes()) + ' Минут ' + String(moment.duration(String(value)).seconds()) + ' Секунд'
   }
 });
+Vue.use(VModal)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
