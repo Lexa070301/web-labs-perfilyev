@@ -20,23 +20,15 @@
         <div v-if="(block.status=='В работе')" class="start_date">
           Дата начала:
           <br>
-          {{ block.start_date = new Intl.DateTimeFormat('ru-RU', {
-          year: 'numeric', month: 'numeric', day: 'numeric',
-          hour: 'numeric', minute: 'numeric', second: 'numeric',
-          hour12: false
-          }).format(new Date) }}
+          {{ block.start_date = new Date() | formatDate}}
         </div>
         <div v-if="(block.status=='Готово')" class="end_date">
           Дата начала:
           <br>
-          <span>{{ block.start_date }}</span>
+          <span>{{ block.start_date | formatDate}}</span>
           Дата завершения:
           <br>
-          {{ new Intl.DateTimeFormat('ru-RU', {
-          year: 'numeric', month: 'numeric', day: 'numeric',
-          hour: 'numeric', minute: 'numeric', second: 'numeric',
-          hour12: false
-          }).format(new Date) }}
+          {{ new Date() | formatDate }}
         </div>
         <div class="name" v-if="(block.status=='В работе') || (block.status=='Готово')">
           <span>Имя ответственного:</span>
@@ -76,8 +68,8 @@
                     if (this.blocks[i].status === 'Готово')
                         this.count['Готово']++;
                 }
-                console.log(this.blocks[0].start_date.split(',')[0])
-                console.log(Date.parse(this.blocks[0].start_date.split(',')[0]))
+                // console.log(this.blocks[0].start_date.split(',')[0])
+                // console.log(Date.parse(this.blocks[0].start_date.split(',')[0]))
             },
             delete_card(block) {
                 block.status = 'deleted';
@@ -98,21 +90,13 @@
 
                 }
                 this.blocks.push({
-                    id: this.blocks.length+1,
-                    number: this.blocks.length+1,
+                    id: this.blocks.length + 1,
+                    number: this.blocks.length + 1,
                     status: 'План',
                     description: 'Описание',
-                    start_date: new Intl.DateTimeFormat('ru-RU', {
-                        year: 'numeric', month: 'numeric', day: 'numeric',
-                        hour: 'numeric', minute: 'numeric', second: 'numeric',
-                        hour12: false
-                    }).format(new Date),
-                    end_date: new Intl.DateTimeFormat('ru-RU', {
-                        year: 'numeric', month: 'numeric', day: 'numeric',
-                        hour: 'numeric', minute: 'numeric', second: 'numeric',
-                        hour12: false
-                    }).format(new Date),
-                    name: 'Alexey'
+                    start_date: new Date,
+                    end_date: new Date,
+                    name: 'Alexey',
                 });
                 this.count['План'] = 0;
                 this.count['В работе'] = 0;
