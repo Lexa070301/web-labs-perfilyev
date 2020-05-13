@@ -11,6 +11,13 @@ Vue.filter('formatDate', function(value) {
     return moment(String(value)).format('DD.MM.YYYY hh:mm:ss')
   }
 });
+Vue.filter('formatTime', function(value) {
+  if (value) {
+    // var tempTime = moment.duration(x);
+    // var y = tempTime.hours() + tempTime.minutes();
+    return String(moment.duration(String(value)).days()) +' Дней '+ String(moment.duration(String(value)).hours()) + ' Часов ' + String(moment.duration(String(value)).minutes()) + ' Минут ' + String(moment.duration(String(value)).seconds()) + ' Секунд'
+  }
+});
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

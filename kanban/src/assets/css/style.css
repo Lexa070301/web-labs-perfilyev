@@ -1,3 +1,4 @@
+
 .container {
   width: 1170px;
   margin: 0px auto;
@@ -18,6 +19,7 @@
   text-transform: none;
   font-size: 22px;
   color: white;
+  font-weight: 800;
 }
 
 .drag-item {
@@ -51,6 +53,7 @@
   margin-bottom: 20px;
   font-size: 46px;
   text-align: left;
+  font-weight: 900;
 }
 
 .drag-inner-list {
@@ -59,21 +62,29 @@
 
 .task-number {
   font-size: 18px;
-  font-weight: bold;
   margin-bottom: 10px;
+  font-weight: 600;
 }
 
 .description {
   font-size: 16px;
-  font-weight: lighter;
   margin-bottom: 5px;
+  font-weight: 500;
 }
 
 .start_date, .end_date, .end_date span {
   font-size: 16px;
-  font-weight: lighter;
+  font-weight: 500;
   margin-bottom: 5px;
   display: block;
+}
+.end_date {
+  width: 75%;
+}
+.name {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 5px;
 }
 
 .btn {

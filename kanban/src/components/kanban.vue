@@ -26,9 +26,9 @@
           Дата начала:
           <br>
           <span>{{ block.start_date | formatDate}}</span>
-          Дата завершения:
+          Времени потрачено:
           <br>
-          {{ new Date() | formatDate }}
+          {{ new Date() - block.start_date | formatTime }}
         </div>
         <div class="name" v-if="(block.status=='В работе') || (block.status=='Готово')">
           <span>Имя ответственного:</span>
