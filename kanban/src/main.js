@@ -6,17 +6,18 @@ import './plugins/vue-kanban'
 import moment from 'moment'
 import VModal from 'vue-js-modal'
 
+import './assets/fonts/stylesheet.css'
+import './assets/css/style.css'
+
 Vue.config.productionTip = false
-Vue.filter('formatDate', function(value) {
+Vue.filter('formatDate', function (value) {
   if (value) {
     return moment(String(value)).format('DD.MM.YYYY hh:mm:ss')
   }
 });
-Vue.filter('formatTime', function(value) {
+Vue.filter('formatTime', function (value) {
   if (value) {
-    // var tempTime = moment.duration(x);
-    // var y = tempTime.hours() + tempTime.minutes();
-    return String(moment.duration(String(value)).days()) +' Дней '+ String(moment.duration(String(value)).hours()) + ' Часов ' + String(moment.duration(String(value)).minutes()) + ' Минут ' + String(moment.duration(String(value)).seconds()) + ' Секунд'
+    return String(moment.duration(String(value)).days()) + ' Дней ' + String(moment.duration(String(value)).hours()) + ' Часов ' + String(moment.duration(String(value)).minutes()) + ' Минут ' + String(moment.duration(String(value)).seconds()) + ' Секунд'
   }
 });
 Vue.use(VModal)

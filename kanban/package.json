@@ -10,10 +10,12 @@
     "start": "npm run dev"
   },
   "dependencies": {
+    "luxon": "^1.24.1",
     "moment": "^2.25.3",
     "vue": "^2.5.2",
     "vue-js-modal": "^2.0.0-rc.3",
-    "vue-kanban": "^1.6.1"
+    "vue-kanban": "^1.6.1",
+    "vue2-datepicker": "^3.5.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

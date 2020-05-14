@@ -1,7 +1,14 @@
 <template>
   <div class="kanban container">
     <h1 class="main__title">{{ title }}</h1>
-    <button class="add-card" @click="add_card"></button>
+    <label for="theme" class="theme-label">
+      Тёмная тема:
+      <input type="checkbox" id="theme" v-model="isChecked">
+    </label>
+    <div class="add_new_card">
+      <textarea placeholder="Описание" class="new_description" id="new_description"></textarea>
+      <button class="add-card" @click="add_card"></button>
+    </div>
     <kanban-board :stages="stages" :blocks="blocks" @update-block="updateBlock">
       <div v-for="stage in stages" :slot="stage" :key="stage">
         <h2 class="column-title">
@@ -18,7 +25,7 @@
         <div v-if="(block.status=='В работе')" class="start_date">
           Дата начала:
           <br>
-          {{ block.start_date = new Date() | formatDate}}
+          {{ block.start_date | formatDate}}
         </div>
         <div v-if="(block.status=='Готово')" class="end_date">
           Дата начала:
@@ -26,7 +33,7 @@
           <span>{{ block.start_date | formatDate}}</span>
           Времени потрачено:
           <br>
-          {{ new Date() - block.start_date | formatTime }}
+          {{ block.end_date - block.start_date | formatTime }}
         </div>
         <div class="name" v-if="(block.status=='В работе') || (block.status=='Готово')">
           <span>Имя ответственного:</span>
@@ -34,55 +41,73 @@
           {{ block.name }}
         </div>
         <button class="btn close" @click="delete_card(block)"></button>
-        <button class="btn edit" @click="show"></button>
-        <button class="btn confirm"></button>
-        <modal name="card_edit">
-          <button class="close-btn" @click="hide"></button>
-          <form id="form">
-            <label for="input-status">
-              Статус:
-              <select class="input input-status" id="input-status">
-                <option value="План">План</option>
-                <option value="В работе">В работе</option>
-                <option value="Готово">Готово</option>
-              </select>
-            </label>
-            <label for="input-description">
-              Описание:
-              <textarea class="input input-description" id="input-description">
-              </textarea>
-            </label>
-            <label v-if="(block.status=='В работе') || (block.status=='Готово')" for="input-name">
-              Ответственный:
-              <input type="text" class="input input-name" id="input-name">
-            </label>
-            <label for="input-start-date">
-              Дата начала:
-              <input type="text" class="input input-start-date" id="input-start-date">
-            </label>
-
-          </form>
-        </modal>
+        <button class="btn edit" @click="show(block)"></button>
+        <button class="btn confirm" @click="confirm(block)"></button>
       </div>
     </kanban-board>
-
+    <modal name="card_edit" v-if="blocks[0]!=null">
+      <button class="close-btn" @click="hide"></button>
+      <div id="form" class="form">
+        <label for="input-status">
+          Статус:
+          <select class="input input-status" v-model="status" id="input-status">
+            <option value="План">План</option>
+            <option value="В работе">В работе</option>
+            <option value="Готово">Готово</option>
+          </select>
+        </label>
+        <label for="input-description">
+          Описание:
+          <textarea v-model="description" class="input input-description" id="input-description"></textarea>
+        </label>
+        <label v-if="(status=='В работе') || (status=='Готово')" for="input-name">
+          Ответственный:
+          <input v-model="name" type="text" class="input input-name" id="input-name">
+        </label>
+        <label for="input-start-date" v-if="(status=='В работе') || (status=='Готово')">
+          Дата начала:
+          <date-picker v-model="datetime_start" type="datetime" id="input-start-date"></date-picker>
+        </label>
+        <label for="input-end-date" v-if="(status=='Готово')">
+          Дата окончания:
+          <date-picker v-model="datetime_end" type="datetime" id="input-end-date"></date-picker>
+        </label>
+        <button class="apply" @click="apply">Применить</button>
+      </div>
+    </modal>
   </div>
 </template>
 
 <script>
+    import DatePicker from 'vue2-datepicker';
+    import 'vue2-datepicker/index.css';
+
     export default {
         name: 'kanban',
+        components: {DatePicker},
         data() {
             return {
                 title: 'Канбан',
                 stages: ['План', 'В работе', 'Готово'],
                 blocks: [],
-                count: {'План': 0, 'В работе': 0, 'Готово': 0}
+                count: {'План': 0, 'В работе': 0, 'Готово': 0},
+                datetime_start: new Date(),
+                datetime_end: new Date(),
+                description: '',
+                name: '',
+                status: 'План',
+                block_id: 0,
+                isChecked: false
             }
         },
         methods: {
             updateBlock(id, status) {
                 this.blocks.find(b => b.id === Number(id)).status = status;
+                if (status == 'В работе')
+                    this.blocks.find(b => b.id === Number(id)).start_date = new Date();
+                if (status == 'Готово')
+                    this.blocks.find(b => b.id === Number(id)).end_date = new Date();
+
                 this.count['План'] = 0;
                 this.count['В работе'] = 0;
                 this.count['Готово'] = 0;
@@ -94,8 +119,6 @@
                     if (this.blocks[i].status === 'Готово')
                         this.count['Готово']++;
                 }
-                // console.log(this.blocks[0].start_date.split(',')[0])
-                // console.log(Date.parse(this.blocks[0].start_date.split(',')[0]))
             },
             delete_card(block) {
                 block.status = 'deleted';
@@ -111,19 +134,20 @@
                         this.count['Готово']++;
                 }
             },
+            confirm(block) {
+                document.querySelector('.drag-item[data-block-id="' + block.id + '"] .confirm').classList.add("green_confirm")
+            },
             add_card() {
-                for (var i = 0; i <= this.blocks.length - 1; i++) {
-
-                }
                 this.blocks.push({
                     id: this.blocks.length + 1,
                     number: this.blocks.length + 1,
                     status: 'План',
-                    description: 'Описание',
-                    start_date: new Date,
-                    end_date: new Date,
+                    description: document.querySelector('.new_description').value,
+                    start_date: new Date(),
+                    end_date: new Date(),
                     name: 'Alexey',
                 });
+                document.querySelector('.new_description').value = ''
                 this.count['План'] = 0;
                 this.count['В работе'] = 0;
                 this.count['Готово'] = 0;
@@ -136,14 +160,97 @@
                         this.count['Готово']++;
                 }
             },
-            show () {
+            show(block, id) {
                 this.$modal.show('card_edit');
+                this.status = block.status
+                this.block_id = block.id
+                this.description = block.description
+                this.name = block.name
+                this.datetime_start = block.start_date
+                this.datetime_end = block.end_date
             },
-            hide () {
+            hide() {
                 this.$modal.hide('card_edit');
             },
-            apply () {
-                this.$modal.hide('card_edit');
+            apply() {
+                if (this.status == 'План') {
+                    if (document.querySelector('.input-description').value != '') {
+                        document.querySelector('.input-description').classList.remove("error")
+                        this.$modal.hide('card_edit');
+                        this.blocks[this.block_id - 1].description = this.description
+                    } else {
+                        document.querySelector('.input-description').classList.add("error")
+                    }
+                } else if (this.status == 'В работе') {
+                    if ((document.querySelector('.input-description').value != '') &&
+                        (this.datetime_start != null) &&
+                        (document.querySelector('.input-name').value != '')) {
+                        this.$modal.hide('card_edit');
+                        this.blocks[this.block_id - 1].description = this.description
+                        this.blocks[this.block_id - 1].start_date = this.datetime_start
+                        this.blocks[this.block_id - 1].name = this.name
+                    } else {
+                        if (document.querySelector('.input-description').value == '') {
+                            document.querySelector('.input-description').classList.add("error")
+                        } else {
+                            document.querySelector('.input-description').classList.remove("error")
+                        }
+                        if (this.datetime_start == null) {
+                            document.querySelector('#input-start-date .mx-input').classList.add("error")
+                        } else {
+                            document.querySelector('#input-start-date .mx-input').classList.remove("error")
+                        }
+                        if (document.querySelector('.input-name').value == '') {
+                            document.querySelector('.input-name').classList.add("error")
+                        } else {
+                            document.querySelector('.input-name').classList.remove("error")
+                        }
+                    }
+                } else if (this.status == 'Готово') {
+                    if ((document.querySelector('.input-description').value != '') &&
+                        (this.datetime_start != null) &&
+                        (this.datetime_end != null) &&
+                        (document.querySelector('.input-name').value != '')) {
+                        this.$modal.hide('card_edit');
+                        this.blocks[this.block_id - 1].description = this.description
+                        this.blocks[this.block_id - 1].start_date = this.datetime_start
+                        this.blocks[this.block_id - 1].end_date = this.datetime_end
+                        this.blocks[this.block_id - 1].name = this.name
+                    } else {
+                        if (document.querySelector('.input-description').value == '') {
+                            document.querySelector('.input-description').classList.add("error")
+                        } else {
+                            document.querySelector('.input-description').classList.remove("error")
+                        }
+                        if (this.datetime_start == null) {
+                            document.querySelector('#input-start-date .mx-input').classList.add("error")
+                        } else {
+                            document.querySelector('#input-start-date .mx-input').classList.remove("error")
+                        }
+                        if (this.datetime_end == null) {
+                            document.querySelector('#input-end-date .mx-input').classList.add("error")
+                        } else {
+                            document.querySelector('#input-end-date .mx-input').classList.remove("error")
+                        }
+                        if (document.querySelector('.input-name').value == '') {
+                            document.querySelector('.input-name').classList.add("error")
+                        } else {
+                            document.querySelector('.input-name').classList.remove("error")
+                        }
+                    }
+                }
+                this.count['План'] = 0;
+                this.count['В работе'] = 0;
+                this.count['Готово'] = 0;
+                this.blocks[this.block_id - 1].status = this.status
+                for (var i = 0; i <= this.blocks.length - 1; i++) {
+                    if (this.blocks[i].status === 'План')
+                        this.count['План']++;
+                    if (this.blocks[i].status === 'В работе')
+                        this.count['В работе']++;
+                    if (this.blocks[i].status === 'Готово')
+                        this.count['Готово']++;
+                }
             }
         }
     }
