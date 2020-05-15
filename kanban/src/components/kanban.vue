@@ -1,15 +1,16 @@
 <template>
   <div class="kanban container">
-    <h1 class="main__title">{{ title }}</h1>
+    <h1 class="main__title" v-bind:class="{dark_main__title: isChecked}">{{ title }}</h1>
     <label for="theme" class="theme-label">
       Тёмная тема:
-      <input type="checkbox" id="theme" v-model="isChecked">
+      <input type="checkbox" id="theme" @change="change_theme">
     </label>
     <div class="add_new_card">
-      <textarea placeholder="Описание" class="new_description" id="new_description"></textarea>
-      <button class="add-card" @click="add_card"></button>
+      <textarea v-bind:class="{dark_input: isChecked}" placeholder="Описание" class="new_description"
+                id="new_description"></textarea>
+      <button v-bind:class="{dark_add_card: isChecked}" class="add-card" @click="add_card"></button>
     </div>
-    <kanban-board :stages="stages" :blocks="blocks" @update-block="updateBlock">
+    <kanban-board v-bind:class="{dark_kanban: isChecked}" :stages="stages" :blocks="blocks" @update-block="updateBlock">
       <div v-for="stage in stages" :slot="stage" :key="stage">
         <h2 class="column-title">
           {{ stage + ' (' + count[stage] + ')'}}
@@ -47,10 +48,11 @@
     </kanban-board>
     <modal name="card_edit" v-if="blocks[0]!=null">
       <button class="close-btn" @click="hide"></button>
-      <div id="form" class="form">
+      <div id="form" v-bind:class="{dark_form: isChecked}" class="form">
         <label for="input-status">
           Статус:
-          <select class="input input-status" v-model="status" id="input-status">
+          <select v-bind:class="{dark_input_status: isChecked}" class="input input-status" v-model="status"
+                  id="input-status">
             <option value="План">План</option>
             <option value="В работе">В работе</option>
             <option value="Готово">Готово</option>
@@ -58,21 +60,25 @@
         </label>
         <label for="input-description">
           Описание:
-          <textarea v-model="description" class="input input-description" id="input-description"></textarea>
+          <textarea v-model="description" v-bind:class="{dark_new_description: isChecked}"
+                    class="input input-description" id="input-description"></textarea>
         </label>
         <label v-if="(status=='В работе') || (status=='Готово')" for="input-name">
           Ответственный:
-          <input v-model="name" type="text" class="input input-name" id="input-name">
+          <input v-model="name" v-bind:class="{dark_input: isChecked}" type="text" class="input input-name"
+                 id="input-name">
         </label>
         <label for="input-start-date" v-if="(status=='В работе') || (status=='Готово')">
           Дата начала:
-          <date-picker v-model="datetime_start" type="datetime" id="input-start-date"></date-picker>
+          <date-picker v-model="datetime_start" v-bind:class="{dark_mx_input: isChecked}" type="datetime"
+                       id="input-start-date"></date-picker>
         </label>
         <label for="input-end-date" v-if="(status=='Готово')">
           Дата окончания:
-          <date-picker v-model="datetime_end" type="datetime" id="input-end-date"></date-picker>
+          <date-picker v-model="datetime_end" v-bind:class="{dark_mx_input: isChecked}" type="datetime"
+                       id="input-end-date"></date-picker>
         </label>
-        <button class="apply" @click="apply">Применить</button>
+        <button class="apply" v-bind:class="{dark_input: isChecked}" @click="apply">Применить</button>
       </div>
     </modal>
   </div>
@@ -160,8 +166,14 @@
                         this.count['Готово']++;
                 }
             },
-            show(block, id) {
+            show(block) {
                 this.$modal.show('card_edit');
+                if (this.isChecked) {
+                    console.log(document.querySelectorAll('.mx-input'))
+                    for (var i = 0; i < document.querySelectorAll('.mx-input').length; ++i) {
+                        document.querySelectorAll('.mx-input')[i].classList.add('dark_mx-input');
+                    }
+                }
                 this.status = block.status
                 this.block_id = block.id
                 this.description = block.description
@@ -178,6 +190,8 @@
                         document.querySelector('.input-description').classList.remove("error")
                         this.$modal.hide('card_edit');
                         this.blocks[this.block_id - 1].description = this.description
+
+                        this.blocks[this.block_id - 1].status = this.status
                     } else {
                         document.querySelector('.input-description').classList.add("error")
                     }
@@ -189,6 +203,8 @@
                         this.blocks[this.block_id - 1].description = this.description
                         this.blocks[this.block_id - 1].start_date = this.datetime_start
                         this.blocks[this.block_id - 1].name = this.name
+
+                        this.blocks[this.block_id - 1].status = this.status
                     } else {
                         if (document.querySelector('.input-description').value == '') {
                             document.querySelector('.input-description').classList.add("error")
@@ -216,6 +232,8 @@
                         this.blocks[this.block_id - 1].start_date = this.datetime_start
                         this.blocks[this.block_id - 1].end_date = this.datetime_end
                         this.blocks[this.block_id - 1].name = this.name
+
+                        this.blocks[this.block_id - 1].status = this.status
                     } else {
                         if (document.querySelector('.input-description').value == '') {
                             document.querySelector('.input-description').classList.add("error")
@@ -242,7 +260,6 @@
                 this.count['План'] = 0;
                 this.count['В работе'] = 0;
                 this.count['Готово'] = 0;
-                this.blocks[this.block_id - 1].status = this.status
                 for (var i = 0; i <= this.blocks.length - 1; i++) {
                     if (this.blocks[i].status === 'План')
                         this.count['План']++;
@@ -250,6 +267,16 @@
                         this.count['В работе']++;
                     if (this.blocks[i].status === 'Готово')
                         this.count['Готово']++;
+                }
+            }
+            ,
+            change_theme() {
+                this.isChecked = !this.isChecked
+                if (this.isChecked) {
+                    document.querySelector('body').classList.add('dark_body')
+                } else {
+                    document.querySelector('body').classList.remove('dark_body')
+
                 }
             }
         }

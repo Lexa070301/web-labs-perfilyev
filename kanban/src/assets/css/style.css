@@ -137,7 +137,6 @@ body {
   border-radius: 15px!important;
   box-sizing: border-box!important;
   height: auto!important;
-  padding: 40px!important;
   color: black!important;
   overflow: visible;
   top: 5%!important;
@@ -158,6 +157,7 @@ body {
   transform: scale(1.1);
 }
 .form {
+  padding: 40px!important;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -219,7 +219,7 @@ label {
   color: white;
 }
 .error {
-  border: 2px solid red;
+  border: 2px solid #ff0000;
 }
 .new_description {
   height: 50px;
@@ -231,6 +231,7 @@ label {
   outline: none;
   resize: none;
   box-sizing: border-box;
+  background: none;
 }
 .green_confirm {
   background: url("../img/check-mark-green.svg") no-repeat;
@@ -241,7 +242,60 @@ label {
   align-items: center;
   flex-direction: row;
   font-size: 18px;
+  position: absolute;
+  width: auto;
+  right: 100px;
+  top: 50px;
 }
-#theme {
-  background-color: #03A9F4;
+.dark_body {
+  background-color: #212121;
+}
+.dark_new_description, .dark_apply, .dark_input {
+  border: 2px solid #323232;
+  color: white;
+  background: none;
+}
+.dark_mx_input input{
+  border: 2px solid #323232;
+  color: white;
+  background: none;
+}
+.dark_mx_input input{
+  border: 2px solid #323232;
+  color: white;
+  background: none;
+}
+.dark_mx_input input:hover{
+  border: 2px solid #323232;
+}
+.dark_kanban .drag-column {
+  background: #323232;
+  color: white;
+}
+.dark_add_card {
+  background: url("../img/pluss-white.svg") center center no-repeat, #323232;
+  background-size: 60%;
+  color: white;
+}
+.dark_main__title {
+  color: white;
+}
+.dark_kanban .drag-item {
+  background-color: #414141;
+}
+.dark_body .is-moving {
+  background: #414141 !important;
+  color: white !important;
+}
+.dark_body .error {
+  border: 2px solid #af0000;
+}
+.dark_form {
+  background-color: #212121;
+  color: white;
+}
+.dark_input_status {
+  color: white;
+  background-color: #212121;
+  border: 2px solid #323232;
 }
