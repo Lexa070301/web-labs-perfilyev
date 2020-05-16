@@ -1,5 +1,10 @@
 body {
   margin: 0;
+  font-family: 'Gilroy', Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
 }
 .container {
   width: 1170px;
@@ -10,11 +15,19 @@ body {
 }
 .drag-container {
   width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
+
 .drag-column {
   background: #03A9F4;
   border-radius: 15px;
   text-align: left;
+  padding: 10px;
+  box-sizing: border-box;
+  margin: 10px;
+  padding-top: 0;
 }
 
 .drag-column h2 {
@@ -22,6 +35,7 @@ body {
   font-size: 22px;
   color: white;
   font-weight: 800;
+  margin: 10px;
 }
 
 .drag-item {
@@ -31,6 +45,10 @@ body {
   position: relative;
   min-height: 100px;
   overflow: hidden;
+  color: white;
+  margin: 0px auto;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 .drag-item:hover {
@@ -299,6 +317,7 @@ label {
   background-color: #212121;
   border: 2px solid #323232;
 }
+
 @media screen and (max-width: 1170px) {
   .container {
     width: 95%;
