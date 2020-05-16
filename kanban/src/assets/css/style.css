@@ -234,7 +234,7 @@ label {
   background: none;
 }
 .green_confirm {
-  background: url("../img/check-mark-green.svg") no-repeat;
+  background: url("../img/check-mark-green.svg") no-repeat!important;
 }
 .theme-label {
   display: flex;

@@ -43,7 +43,7 @@
         </div>
         <button class="btn close" @click="delete_card(block)"></button>
         <button class="btn edit" @click="show(block)"></button>
-        <button class="btn confirm" @click="confirm(block)"></button>
+        <button class="btn confirm" @click="confirm(block, block.id)"></button>
       </div>
     </kanban-board>
     <modal name="card_edit" v-if="blocks[0]!=null">
@@ -140,8 +140,27 @@
                         this.count['Готово']++;
                 }
             },
-            confirm(block) {
-                document.querySelector('.drag-item[data-block-id="' + block.id + '"] .confirm').classList.add("green_confirm")
+            confirm(block, id) {
+                if (block.status == 'План') {
+                    this.blocks.find(b => b.id === Number(id)).start_date = new Date();
+                    block.status = 'В работе'
+                } else if (block.status == 'В работе') {
+                    this.blocks.find(b => b.id === Number(id)).end_date = new Date();
+                    block.status = 'Готово'
+                } else {
+                    document.querySelector('.drag-item[data-block-id="' + block.id + '"] .confirm').classList.add("green_confirm")
+                }
+                this.count['План'] = 0;
+                this.count['В работе'] = 0;
+                this.count['Готово'] = 0;
+                for (var i = 0; i <= this.blocks.length - 1; i++) {
+                    if (this.blocks[i].status === 'План')
+                        this.count['План']++;
+                    if (this.blocks[i].status === 'В работе')
+                        this.count['В работе']++;
+                    if (this.blocks[i].status === 'Готово')
+                        this.count['Готово']++;
+                }
             },
             add_card() {
                 this.blocks.push({
