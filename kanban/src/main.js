@@ -10,6 +10,8 @@ import './assets/fonts/stylesheet.css'
 import './assets/css/style.css'
 
 Vue.config.productionTip = false
+
+// фильтры для форматирования даты
 Vue.filter('formatDate', function (value) {
   if (value) {
     return moment(String(value)).format('DD.MM.YYYY hh:mm:ss')
@@ -21,7 +23,6 @@ Vue.filter('formatTime', function (value) {
   }
 });
 Vue.use(VModal)
-/* eslint-disable no-new */
 new Vue({
   el: '#app',
   components: {App},

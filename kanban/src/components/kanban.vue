@@ -93,6 +93,7 @@
         components: {DatePicker},
         data() {
             return {
+                // Переменные, массивы и обьекты, используемые в приложении
                 title: 'Канбан',
                 stages: ['План', 'В работе', 'Готово'],
                 blocks: [],
@@ -114,6 +115,7 @@
                 if (status == 'Готово')
                     this.blocks.find(b => b.id === Number(id)).end_date = new Date();
 
+                // Пересчет количества карточек в колонках
                 this.count['План'] = 0;
                 this.count['В работе'] = 0;
                 this.count['Готово'] = 0;
@@ -128,6 +130,8 @@
             },
             delete_card(block) {
                 block.status = 'deleted';
+
+                // Пересчет количества карточек в колонках
                 this.count['План'] = 0;
                 this.count['В работе'] = 0;
                 this.count['Готово'] = 0;
@@ -150,6 +154,8 @@
                 } else {
                     document.querySelector('.drag-item[data-block-id="' + block.id + '"] .confirm').classList.add("green_confirm")
                 }
+
+                // Пересчет количества карточек в колонках
                 this.count['План'] = 0;
                 this.count['В работе'] = 0;
                 this.count['Готово'] = 0;
@@ -163,6 +169,7 @@
                 }
             },
             add_card() {
+                // Добавляет новую карточку путем добавления обьекта в массив
                 this.blocks.push({
                     id: this.blocks.length + 1,
                     number: this.blocks.length + 1,
@@ -173,6 +180,8 @@
                     name: 'Alexey',
                 });
                 document.querySelector('.new_description').value = ''
+
+                // Пересчет количества карточек в колонках
                 this.count['План'] = 0;
                 this.count['В работе'] = 0;
                 this.count['Готово'] = 0;
@@ -186,6 +195,7 @@
                 }
             },
             show(block) {
+                // Показ модального окна
                 this.$modal.show('card_edit');
                 if (this.isChecked) {
                     console.log(document.querySelectorAll('.mx-input'))
@@ -201,9 +211,11 @@
                 this.datetime_end = block.end_date
             },
             hide() {
+                // Закрытие модального окна без сохранения
                 this.$modal.hide('card_edit');
             },
             apply() {
+                // Закрытие модального окна и сохранение изменений, а так же валидация полей
                 if (this.status == 'План') {
                     if (document.querySelector('.input-description').value != '') {
                         document.querySelector('.input-description').classList.remove("error")
@@ -276,6 +288,8 @@
                         }
                     }
                 }
+
+                // Пересчет количества карточек в колонках
                 this.count['План'] = 0;
                 this.count['В работе'] = 0;
                 this.count['Готово'] = 0;
@@ -287,9 +301,9 @@
                     if (this.blocks[i].status === 'Готово')
                         this.count['Готово']++;
                 }
-            }
-            ,
+            },
             change_theme() {
+                // смена темы
                 this.isChecked = !this.isChecked
                 if (this.isChecked) {
                     document.querySelector('body').classList.add('dark_body')
