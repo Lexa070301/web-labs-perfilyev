@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="assets/fonts/stylesheet.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <title>Канбан</title>
+</head>
+<body>
+<div class="kanban container">
+  <h1 class="main__title">Канбан</h1>
+  <label for="theme" class="theme-label">
+    Тёмная тема:
+    <input type="checkbox" id="theme">
+  </label>
+  <div class="add_new_card">
+      <textarea placeholder="Описание" class="new_description"
+                id="new_description"></textarea>
+    <button class="add-card"></button>
+  </div>
+  <div class="drag-container">
+    <div class="drag-column">
+      <div>
+        <h2 class="column-title">
+          План (1)
+        </h2>
+      </div>
+      <div class="drag-item">
+        <div class="task-number">
+          <strong>Задача №</strong> 1
+        </div>
+        <div class="description">
+          Описание
+        </div>
+        <div class="start_date">
+          Дата начала:
+          <br>
+          20-20-2004 17:30:00
+        </div>
+        <div class="end_date">
+          Времени потрачено:
+          <br>
+          3 дней 5 часов 3 минуты 2 секунды
+        </div>
+        <div class="name">
+          <span>Имя ответственного:</span>
+          <br>
+          Alexey
+        </div>
+        <button class="btn close"></button>
+        <button class="btn edit"></button>
+        <button class="btn confirm"></button>
+      </div>
+    </div>
+    <div class="drag-column">
+      <div>
+        <h2 class="column-title">
+          В работе (1)
+        </h2>
+      </div>
+      <div class="drag-item">
+        <div class="task-number">
+          <strong>Задача №</strong> 1
+        </div>
+        <div class="description">
+          Описание
+        </div>
+        <div class="start_date">
+          Дата начала:
+          <br>
+          20-20-2004 17:30:00
+        </div>
+        <div class="end_date">
+          Времени потрачено:
+          <br>
+          3 дней 5 часов 3 минуты 2 секунды
+        </div>
+        <div class="name">
+          <span>Имя ответственного:</span>
+          <br>
+          Alexey
+        </div>
+        <button class="btn close"></button>
+        <button class="btn edit"></button>
+        <button class="btn confirm"></button>
+      </div>
+    </div>
+    <div class="drag-column">
+      <div>
+        <h2 class="column-title">
+          Готово (1)
+        </h2>
+      </div>
+      <div class="drag-item">
+        <div class="task-number">
+          <strong>Задача №</strong> 1
+        </div>
+        <div class="description">
+          Описание
+        </div>
+        <div class="start_date">
+          Дата начала:
+          <br>
+          20-20-2004 17:30:00
+        </div>
+        <div class="end_date">
+          Времени потрачено:
+          <br>
+          3 дней 5 часов 3 минуты 2 секунды
+        </div>
+        <div class="name">
+          <span>Имя ответственного:</span>
+          <br>
+          Alexey
+        </div>
+        <button class="btn close"></button>
+        <button class="btn edit"></button>
+        <button class="btn confirm"></button>
+      </div>
+    </div>
+  </div>
+  <div class="card_edit">
+    <button class="close-btn"></button>
+    <div id="form" class="form">
+      <label for="input-status">
+        Статус:
+        <select class="input input-status" id="input-status">
+          <option value="План">План</option>
+          <option value="В работе">В работе</option>
+          <option value="Готово">Готово</option>
+        </select>
+      </label>
+      <label for="input-description">
+        Описание:
+        <textarea class="input input-description" id="input-description"></textarea>
+      </label>
+      <label for="input-name">
+        Ответственный:
+        <input type="text" class="input input-name"
+               id="input-name">
+      </label>
+      <label>
+        Дата начала:
+        <input type="date" id="input-start-date">
+      </label>
+      <label for="input-end-date">
+        Дата окончания:
+        <input type="date" id="input-end-date">
+      </label>
+      <button class="apply">Применить</button>
+    </div>
+  </div>
+</div>
+</body>
+</html>
