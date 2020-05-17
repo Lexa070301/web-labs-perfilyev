@@ -1,7 +1,7 @@
 <template>
   <div class="kanban container">
     <h1 class="main__title" v-bind:class="{dark_main__title: isChecked}">{{ title }}</h1>
-    <label for="theme" class="theme-label">
+    <label for="theme" class="theme-label" v-bind:class="{dark_theme_label: isChecked}">
       Тёмная тема:
       <input type="checkbox" id="theme" @change="change_theme">
     </label>
