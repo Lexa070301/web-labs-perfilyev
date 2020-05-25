@@ -41,9 +41,9 @@
           <br>
           {{ block.name }}
         </div>
-        <button class="btn close" @click="delete_card(block)"></button>
+        <button class="btn close" v-if="block.status=='Готово'" @click="delete_card(block)"></button>
         <button class="btn edit" @click="show(block)"></button>
-        <button class="btn confirm" @click="confirm(block, block.id)"></button>
+        <button class="btn confirm" v-if="block.status!='Готово'" @click="confirm(block, block.id)"></button>
       </div>
     </kanban-board>
     <modal name="card_edit" v-if="blocks[0]!=null">

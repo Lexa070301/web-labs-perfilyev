@@ -38,6 +38,7 @@ body {
 }
 
 .is-moving {
+  font-family: 'Gilroy', Helvetica, sans-serif;
   background: #0288D1 !important;
   color: white !important;
   transform: scale(1.1) !important;
@@ -233,9 +234,9 @@ label {
   box-sizing: border-box;
   background: none;
 }
-.green_confirm {
-  background: url("../img/check-mark-green.svg") no-repeat!important;
-}
+/*.green_confirm {*/
+/*  background: url("../img/check-mark-green.svg") no-repeat!important;*/
+/*}*/
 .theme-label {
   display: flex;
   justify-content: flex-end;
