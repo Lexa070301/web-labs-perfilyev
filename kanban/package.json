@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "luxon": "^1.24.1",
-    "moment": "^2.25.3",
+    "moment": "^2.29.4",
     "vue": "^2.5.2",
     "vue-js-modal": "^2.0.0-rc.3",
     "vue-kanban": "^1.6.1",
